@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float speed = 3.0f;
+    public int maxHealth = 5;
+    int currentHealth;
+
     Rigidbody2D rb2d;
 
     float horizontal;
@@ -13,6 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -30,5 +35,11 @@ public class PlayerController : MonoBehaviour
         position.y = position.y + 3f * vertical * Time.deltaTime;
 
         rb2d.MovePosition(position);
+    }
+
+    void ChangeHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
