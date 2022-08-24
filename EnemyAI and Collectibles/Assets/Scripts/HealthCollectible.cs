@@ -6,7 +6,6 @@ public class HealthCollectible : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Object that entered the trigger : " + collision);
         PlayerController controller = collision.GetComponent<PlayerController>();
         if(controller != null)
         {
