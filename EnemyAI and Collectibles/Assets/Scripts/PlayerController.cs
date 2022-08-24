@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 3.0f;
+
     public int maxHealth = 5;
-    public int currentHealth;
+    int currentHealth;
+    public int health { get { return currentHealth; } }
 
     Rigidbody2D rb2d;
 
