@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 3.0f;
     public int maxHealth = 5;
-    int currentHealth;
+    public int currentHealth;
 
     Rigidbody2D rb2d;
 
@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+
         currentHealth = maxHealth;
     }
 
@@ -31,13 +32,13 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 position = rb2d.position;
 
-        position.x = position.x + 3f * horizontal * Time.deltaTime;
-        position.y = position.y + 3f * vertical * Time.deltaTime;
+        position.x += speed * horizontal * Time.deltaTime;
+        position.y += speed * vertical * Time.deltaTime;
 
         rb2d.MovePosition(position);
     }
 
-    void ChangeHealth(int amount)
+    public void ChangeHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
