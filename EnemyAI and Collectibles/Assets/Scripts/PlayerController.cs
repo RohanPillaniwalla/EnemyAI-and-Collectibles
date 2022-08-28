@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float PlayerSpeed = 3.0f;
+    public float playerSpeed = 3.0f;
 
-    public int PlayerMaxHealth = 5;
-    int PlayerCurrentHealth;
-    public int Health { get { return PlayerCurrentHealth; } }
+    public int playerMaxHealth = 5;
+    int playerCurrentHealth;
+    public int Health { get { return playerCurrentHealth; } }
 
-    Rigidbody2D Playerrb2d;
+    Rigidbody2D playerRb2D;
 
     float horizontal;
     float vertical;
@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Playerrb2d = GetComponent<Rigidbody2D>();
+        playerRb2D = GetComponent<Rigidbody2D>();
 
-        PlayerCurrentHealth = PlayerMaxHealth;
+        playerCurrentHealth = playerMaxHealth;
     }
 
     // Update is called once per frame
@@ -30,17 +30,17 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 position = Playerrb2d.position;
+        Vector2 position = playerRb2D.position;
 
-        position.x += PlayerSpeed * horizontal * Time.deltaTime;
-        position.y += PlayerSpeed * vertical * Time.deltaTime;
+        position.x += playerSpeed * horizontal * Time.deltaTime;
+        position.y += playerSpeed * vertical * Time.deltaTime;
 
-        Playerrb2d.MovePosition(position);
+        playerRb2D.MovePosition(position);
     }
 
     public void ChangeHealth(int amount)
     {
-        PlayerCurrentHealth = Mathf.Clamp(PlayerCurrentHealth + amount, 0, PlayerMaxHealth);
-        Debug.Log(PlayerCurrentHealth + "/" + PlayerMaxHealth);
+        playerCurrentHealth = Mathf.Clamp(playerCurrentHealth + amount, 0, playerMaxHealth);
+        Debug.Log(playerCurrentHealth + "/" + playerMaxHealth);
     }
 }
