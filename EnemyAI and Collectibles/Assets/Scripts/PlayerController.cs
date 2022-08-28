@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,7 +6,7 @@ public class PlayerController : MonoBehaviour
 
     public int maxHealth = 5;
     int currentHealth;
-    public int health { get { return currentHealth; } }
+    public int Health { get { return currentHealth; } }
 
     Rigidbody2D rb2d;
 
