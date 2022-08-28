@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     int PlayerCurrentHealth;
     public int Health { get { return PlayerCurrentHealth; } }
 
-    Rigidbody2D rb2d;
+    Rigidbody2D Playerrb2d;
 
     float horizontal;
     float vertical;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        Playerrb2d = GetComponent<Rigidbody2D>();
 
         PlayerCurrentHealth = PlayerMaxHealth;
     }
@@ -30,12 +30,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 position = rb2d.position;
+        Vector2 position = Playerrb2d.position;
 
         position.x += PlayerSpeed * horizontal * Time.deltaTime;
         position.y += PlayerSpeed * vertical * Time.deltaTime;
 
-        rb2d.MovePosition(position);
+        Playerrb2d.MovePosition(position);
     }
 
     public void ChangeHealth(int amount)
